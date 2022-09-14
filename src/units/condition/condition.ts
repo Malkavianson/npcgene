@@ -26,13 +26,19 @@ export class Adotable extends type.Animal {
 		}
 	}
 
-	freedom(): string {
-		if (this.bornState()) {
-			return this.bornState();
-		} else if (!this.bornState() && this._haveTutor) {
+	protected tutored(): string {
+		if (this._haveTutor) {
 			return `Tutor: ${this.tutor}`;
 		} else {
 			return `${this.tutor}`;
+		}
+	}
+
+	freedom(): string {
+		if (this.bornState()) {
+			return this.bornState();
+		} else if (!this.bornState() && this.tutored()) {
+			return this.tutored();
 		}
 	}
 }
@@ -61,13 +67,19 @@ export class Enslavable extends type.Animal {
 		this._isSlave = false;
 	}
 
-	freedom(): string {
-		if (this.bornState()) {
-			return this.bornState();
-		} else if (!this.bornState() && this._isSlave) {
+	protected slavered(): string {
+		if (this._isSlave) {
 			return `${this.master}'s Slave`;
 		} else {
 			return `${this.master}`;
+		}
+	}
+
+	freedom(): string {
+		if (this.bornState()) {
+			return this.bornState();
+		} else if (!this.bornState() && this.slavered()) {
+			return `${this.slavered()}`;
 		}
 	}
 }

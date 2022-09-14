@@ -1,9 +1,9 @@
 import type { AnimalState } from 'types/unitTypes';
 
 export class Animal {
+	readonly _born: number;
 	protected _name: string = 'unnamed';
 	protected _wildless: boolean = true;
-	protected _born: number;
 	protected _language: string = '...';
 	protected _hp: number = 100;
 	protected _mp: number = 5;
@@ -93,8 +93,11 @@ export class Animal {
 		}
 	}
 	public freedom(): string {
-		return this.bornState();
+		if (this.bornState()) {
+			return this.bornState();
+		}
 	}
+
 	public speach(): string {
 		return this._language;
 	}

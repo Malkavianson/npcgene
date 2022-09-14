@@ -1,5 +1,7 @@
 export const DicePlay = {
-	dice: (sides: number=6): number => { return Math.floor(Math.random() * sides) + 1},
+	dice: (sides: number = 6): number => {
+		return Math.floor(Math.random() * sides) + 1;
+	},
 
 	action: (dices: number = 2, sides: number = 6): number[] => {
 		let dropped: number[] = [];

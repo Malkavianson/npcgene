@@ -1,4 +1,4 @@
-export interface AnimalState  {
+export interface AnimalState {
 	creation: number;
 	name: string;
 	freedom: string;
