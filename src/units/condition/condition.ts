@@ -1,7 +1,7 @@
 import * as type from '../type/type';
 
 export class Adotable extends type.Animal {
-	protected _tutor: string;
+	protected _tutor: string = 'Unmentored';
 	protected _haveTutor: boolean = false;
 
 	public get tutor(): string {
@@ -15,13 +15,24 @@ export class Adotable extends type.Animal {
 	}
 
 	public adopt(newTutor: string): void {
-		this.tutor = newTutor;
+		if (newTutor) {
+			this.tutor = newTutor;
+		}
+	}
+	public untutoring(): void {
+		if (this._haveTutor) {
+			this.tutor = 'Own Tutor';
+			this._haveTutor = false;
+		}
 	}
 
-	freedom(): void {
-		this.bornState();
-		if (this._haveTutor) {
-			console.log(`Tutor: ${this.tutor}`);
+	freedom(): string {
+		if (this.bornState()) {
+			return this.bornState();
+		} else if (!this.bornState() && this._haveTutor) {
+			return `Tutor: ${this.tutor}`;
+		} else {
+			return `${this.tutor}`;
 		}
 	}
 }
@@ -40,7 +51,9 @@ export class Enslavable extends type.Animal {
 	}
 
 	public enslave(newMaster: string) {
-		this.master = newMaster;
+		if (newMaster) {
+			this.master = newMaster;
+		}
 	}
 
 	public setFree(): void {
@@ -48,10 +61,13 @@ export class Enslavable extends type.Animal {
 		this._isSlave = false;
 	}
 
-	freedom(): void {
-		this.bornState();
-		if (this._isSlave) {
-			console.log(`${this.master}'s Slave`);
+	freedom(): string {
+		if (this.bornState()) {
+			return this.bornState();
+		} else if (!this.bornState() && this._isSlave) {
+			return `${this.master}'s Slave`;
+		} else {
+			return `${this.master}`;
 		}
 	}
 }
