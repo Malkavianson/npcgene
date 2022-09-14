@@ -15,14 +15,14 @@ export class Animal {
 		this._born = Date.now();
 	}
 
-	public get name() {
+	public get name(): string {
 		return this._name;
 	}
 
-	private get currentHP() {
+	private get currentHP(): number {
 		return this._hp;
 	}
-	private get currentMP() {
+	private get currentMP(): number {
 		return this._mp;
 	}
 

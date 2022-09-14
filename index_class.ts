@@ -11,24 +11,24 @@ const slave = new species.Horse('Cavalim');
 const pet = new species.Cat('Januário');
 
 // 		Animal methods
-console.log(slave.name)
+console.log(slave.name);
 
-console.log(slave.hp())
-console.log(slave.hp('decrease', 20))
-console.log(slave.hp('increase', 10))
+console.log(slave.hp());
+console.log(slave.hp('decrease', 20));
+console.log(slave.hp('increase', 10));
 
-console.log(slave.mp())
-console.log(slave.mp('decrease', 2))
-console.log(slave.mp('increase', 1))
+console.log(slave.mp());
+console.log(slave.mp('decrease', 2));
+console.log(slave.mp('increase', 1));
 
-console.log(slave.freedom())
-console.log(slave.speach())
+console.log(slave.freedom());
+console.log(slave.speach());
 
 slave.rename('Pe de pano');
 slave.teachSpeach('I can talk in english now O.O ');
 slave.turnCivilizated();
 
-console.log(slave.showState())
+console.log(slave.showState());
 
 // 		Enslavable methods
 slave.enslave('Chico');
