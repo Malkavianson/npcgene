@@ -1,0 +1,23 @@
+{
+	"name": "class-generator",
+	"version": "1.0.0",
+	"main": "./dist/index_class.js",
+	"author": "malkavianson",
+	"license": "MIT",
+	"scripts": {
+		"dev": "nodemon ./dist/index_class.js",
+		"format": "prettier -w .",
+		"production": "tsc --watch",
+		"build": "tsc && node ./dist/index_class.js"
+	},
+	"devDependencies": {
+		"eslint": "^8.23.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^2.0.19",
+		"typescript": "^4.8.3"
+	},
+	"dependencies": {
+		"prettier": "^2.7.1"
+	}
+}
