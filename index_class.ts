@@ -1,49 +1,54 @@
-import { DicePlay } from './src/utils/tools/randomizers';
-import * as species from './src/units/species/species';
+// import { DicePlay } from './src/utils/tools/randomizers';
+// import * as species from './src/units/clan/clan';
+import { Vampire } from './src/units/type/type';
 console.clear();
 
-// const kitty = new species.Cat();
-// const puppy = new species.Dog();
-// const mustang = new species.Horse();
-// const baby = new species.Pig();
+const teste = new Vampire();
+console.log();
+console.log();
+console.log(teste);
+// console.log(teste)
+// console.log(teste._attributes._primary._features)
+// console.log(teste._attributes._secundary._features)
+// console.log(teste._attributes._tertiary._features)
 
-const slave = new species.Horse('Cavalim');
-const pet = new species.Cat('Januário');
+// const vampireSabath = new species.Tzimisce('Cavalim');
+// const vampireCamarilla = new species.Malkavian('Januário');
 
-// 		Animal methods
-console.log(slave.name);
+// // 		Vampire methods
+// console.log(vampireSabath.name);
 
-console.log(slave.hp());
-console.log(slave.hp('decrease', 20));
-console.log(slave.hp('increase', 10));
+// console.log(vampireSabath.hp());
+// console.log(vampireSabath.hp('decrease', 20));
+// console.log(vampireSabath.hp('increase', 10));
 
-console.log(slave.mp());
-console.log(slave.mp('decrease', 2));
-console.log(slave.mp('increase', 1));
+// console.log(vampireSabath.mp());
+// console.log(vampireSabath.mp('decrease', 2));
+// console.log(vampireSabath.mp('increase', 1));
 
-console.log(slave.freedom());
-console.log(slave.speach());
+// console.log(vampireSabath.freedom());
+// console.log(vampireSabath.speach());
 
-slave.rename('Pe de pano');
-slave.teachSpeach('I can talk in english now O.O ');
-slave.turnCivilizated();
+// vampireSabath.rename('Pe de pano');
+// vampireSabath.teachSpeach('I can talk in english now O.O ');
+// vampireSabath.turnCivilizated();
 
-console.log(slave.showState());
+// console.log(vampireSabath.showState());
 
-// 		Enslavable methods
-slave.enslave('Chico');
-console.log(slave.master);
-slave.setFree();
-console.log(slave.freedom());
+// // 		Sabat methods
+// vampireSabath.enslave('Chico');
+// console.log(vampireSabath.master);
+// vampireSabath.setFree();
+// console.log(vampireSabath.freedom());
 
-// 		Adotable methods
-pet.adopt('Tião');
-console.log(pet.tutor);
-pet.untutoring();
-console.log(pet.freedom());
+// // 		Adotable methods
+// vampireCamarilla.adopt('Tião');
+// console.log(vampireCamarilla.tutor);
+// vampireCamarilla.untutoring();
+// console.log(vampireCamarilla.freedom());
 
-// 		DicePlay tool
-console.log(DicePlay.action());
-console.log(DicePlay.action(3, 10));
-console.log(DicePlay.dice());
-console.log(DicePlay.dice(10));
+// // 		DicePlay tool
+// console.log(DicePlay.action());
+// console.log(DicePlay.action(3, 10));
+// console.log(DicePlay.dice());
+// console.log(DicePlay.dice(10));
