@@ -1,12 +1,14 @@
-import type { AttributeItem } from '../../types/abstracts';
+import type { SkillGroup } from '../../types/abstracts';
 import type { Skill } from '../../types/types';
 import { Attribute } from '../sheet/attributes';
 
-export const prioritySelector = (priority: number, dataType: string): number => {
+export const prioritySelector = (
+	priority: number,
+	dataType: string
+): number => {
 	let pts: number;
-
 	switch (dataType) {
-		case 'attribute':
+		case 'attributes':
 			switch (priority) {
 				case 1:
 					pts = 7;
@@ -29,7 +31,7 @@ export const prioritySelector = (priority: number, dataType: string): number => 
 export const featureSelector = (type: string, dataType: string): Skill[] => {
 	let features: Skill[];
 	switch (dataType) {
-		case 'attribute':
+		case 'attributes':
 			switch (type) {
 				case 'physical':
 					features = [
@@ -61,41 +63,43 @@ export const featureSelector = (type: string, dataType: string): Skill[] => {
 	return features;
 };
 
-export const attributeSelector = (priority: number, dataType: string): AttributeItem[] => {
-	let attributes: AttributeItem[] = [];
-
+export const attributeSelector = (
+	priority: number,
+	dataType: string
+): SkillGroup[] => {
+	let attributes: SkillGroup[] = [];
 	switch (dataType) {
 		case 'attributes':
 			switch (priority) {
 				case 1:
-					attributes[0] = new Attribute(1, 'physical');
-					attributes[1] = new Attribute(2, 'social');
-					attributes[2] = new Attribute(3, 'mental');
+					attributes[0] = new Attribute(1, 'physical', dataType);
+					attributes[1] = new Attribute(2, 'social', dataType);
+					attributes[2] = new Attribute(3, 'mental', dataType);
 					break;
 				case 2:
-					attributes[0] = new Attribute(1, 'social');
-					attributes[1] = new Attribute(2, 'mental');
-					attributes[2] = new Attribute(3, 'physical');
+					attributes[0] = new Attribute(1, 'social', dataType);
+					attributes[1] = new Attribute(2, 'mental', dataType);
+					attributes[2] = new Attribute(3, 'physical', dataType);
 					break;
 				case 3:
-					attributes[0] = new Attribute(1, 'mental');
-					attributes[1] = new Attribute(2, 'physical');
-					attributes[2] = new Attribute(3, 'social');
+					attributes[0] = new Attribute(1, 'mental', dataType);
+					attributes[1] = new Attribute(2, 'physical', dataType);
+					attributes[2] = new Attribute(3, 'social', dataType);
 					break;
 				case 4:
-					attributes[0] = new Attribute(1, 'physical');
-					attributes[1] = new Attribute(2, 'mental');
-					attributes[2] = new Attribute(3, 'social');
+					attributes[0] = new Attribute(1, 'physical', dataType);
+					attributes[1] = new Attribute(2, 'mental', dataType);
+					attributes[2] = new Attribute(3, 'social', dataType);
 					break;
 				case 5:
-					attributes[0] = new Attribute(1, 'social');
-					attributes[1] = new Attribute(2, 'physical');
-					attributes[2] = new Attribute(3, 'mental');
+					attributes[0] = new Attribute(1, 'social', dataType);
+					attributes[1] = new Attribute(2, 'physical', dataType);
+					attributes[2] = new Attribute(3, 'mental', dataType);
 					break;
 				case 6:
-					attributes[0] = new Attribute(1, 'mental');
-					attributes[1] = new Attribute(2, 'social');
-					attributes[2] = new Attribute(3, 'physical');
+					attributes[0] = new Attribute(1, 'mental', dataType);
+					attributes[1] = new Attribute(2, 'social', dataType);
+					attributes[2] = new Attribute(3, 'physical', dataType);
 					break;
 				default:
 					break;

@@ -33,14 +33,28 @@ export const nameGenerator = (): string => {
 };
 
 export const clanSelector = (): string => {
-	const clans = ['Brujah', 'Gangrel', 'Nosferatu', 'Malkavian', 'Toreador', 'Tremere', 'Ventrue', 'Lasombra', 'Tzimisce', 'Followers of Set', 'Giovanni', 'Assamite', 'Ravnos'];
+	const clans = [
+		'Brujah',
+		'Gangrel',
+		'Nosferatu',
+		'Malkavian',
+		'Toreador',
+		'Tremere',
+		'Ventrue',
+		'Lasombra',
+		'Tzimisce',
+		'Followers of Set',
+		'Giovanni',
+		'Assamite',
+		'Ravnos',
+	];
 	const selected = randomizer(clans.length);
 	return clans[selected];
 };
 
 export const fillSkills = (features: Skill[], pts: number): Skill[] => {
 	do {
-		const fortuna = randomizer(features.length);
+		const fortuna = randomizer(2);
 		features[fortuna][1]++;
 		pts--;
 	} while (pts > 0);

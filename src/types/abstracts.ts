@@ -1,61 +1,21 @@
 import type {
-	AttributesObject,
-	FeatureType,
-	SheetData
+	SkillSectionAttributeResponse,
+	SkillGroupResponse,
+	SheetData,
 } from './interfaces';
 import type { Skill } from './types';
-import {
-	attributeSelector,
-	featureSelector,
-	prioritySelector
-} from '../utils/tools/separators';
-import { nameGenerator, clanSelector } from '../utils/tools/randomizers';
-import { fillSkills } from '../utils/tools/randomizers';
 
-export class OwnData {
-	private _creation: number;
-	private _id: string;
-	private _name: string;
-	private _player: string;
-	private _clan: string;
-	private _generation: number = 13;
-	// private _nature: string;
-	// private _demeanor: string;
-	// private _concept: string;
-	// private _sire: string;
-
-	constructor(
-		name?: string,
-		player?: string,
-		// nature?: string,
-		// demeanor?: string,
-		// concept?: string,
-		clan?: string,
-		generation?: number
-		// sire?: string,
-	) {
-		this._creation = Date.now();
-		this._id = `porpo1${this._creation}`;
-
-		if (name) {
-			this._name = name;
-		} else {
-			this._name = nameGenerator();
-		}
-		if (player) {
-			this._player = player;
-		} else {
-			this._player = 'NPC';
-		}
-		if (clan) {
-			this._clan = clan;
-		} else {
-			this._clan = clanSelector();
-		}
-		if (generation) {
-			this._generation = generation;
-		}
-	}
+export abstract class OwnData {
+	protected _creation: number;
+	protected _id: string;
+	protected _name: string;
+	protected _player: string;
+	protected _clan: string;
+	protected _generation: number = 13;
+	// protected _nature: string;
+	// protected _demeanor: string;
+	// protected _concept: string;
+	// protected _sire: string;
 
 	public get sheetData(): SheetData {
 		return {
@@ -80,48 +40,37 @@ export class OwnData {
 	}
 }
 
-export class AttributeType {
-	private _dataType: string;
-	private _attributes: AttributeItem[];
+export abstract class SkillSection {
+	protected _dataType: string;
+	protected _attributes: SkillGroup[];
 
-	constructor(priority: number, dataType: string) {
-		this._dataType = dataType;
-		this._attributes = attributeSelector(priority, dataType);
-	}
-
-	public get attributes(): AttributesObject {
-		const attributes: FeatureType[] = this._attributes
-			.map(e => e.features())
+	public get attributes(): SkillSectionAttributeResponse {
+		const att: SkillGroupResponse[] = this._attributes
+			.map(e => {
+				return e.features;
+			})
 			.sort((a, b) => {
 				return a.stand < b.stand ? -1 : a.stand > b.stand ? 1 : 0;
 			});
-		attributes.forEach((e: FeatureType) => delete e.stand);
+		att.forEach((e: SkillGroupResponse) => delete e.stand);
 
-		const res: AttributesObject = {
+		const res: SkillSectionAttributeResponse = {
 			type: this._dataType,
-			physical: attributes[0],
-			social: attributes[1],
-			mental: attributes[2],
+			physical: att[0],
+			social: att[1],
+			mental: att[2],
 		};
 
 		return res;
 	}
 }
 
-export class AttributeItem {
-	private _type: string;
-	private _dataType: string;
-	private _features: Skill[];
+export abstract class SkillGroup {
+	protected _type: string;
+	protected _dataType: string;
+	protected _features: Skill[];
 
-	constructor(priority: number, type: string, dataType: string) {
-		const pts = prioritySelector(priority, dataType);
-		this._type = type;
-		this._dataType = dataType;
-		this._features = featureSelector(type, dataType);
-		this._features = fillSkills(this._features, pts);
-	}
-
-	public features(): FeatureType {
+	public get features(): SkillGroupResponse {
 		let stand: number;
 
 		switch (this._type) {

@@ -1,17 +1,17 @@
-import type { AttributesObject, CheckSheet } from '../../types/interfaces';
 import type {
-	AttributeType,
-	OwnData
-} from '../../types/abstracts';
-// import { randomizer } from '../../utils/tools/randomizers';
+	SkillSectionAttributeResponse,
+	CheckSheet,
+} from '../../types/interfaces';
+import type { SkillSection, OwnData } from '../../types/abstracts';
+import { randomizer } from '../../utils/tools/randomizers';
 import { CardData } from '../../utils/sheet/cardData';
-// import { Attributes } from '../../utils/sheet/attributes';
+import { Attributes } from '../../utils/sheet/attributes';
 
 export class Vampire implements CheckSheet {
 	_cardOwnerData: OwnData;
-	// _attributes: AttributesObject;
-	// 	_abilities: AttributeType;
-	// 	_advantages: AttributeType;
+	_attributes: SkillSectionAttributeResponse;
+	_abilities: SkillSection;
+	_advantages: SkillSection;
 	private _attPriority: number;
 
 	constructor(
@@ -24,12 +24,11 @@ export class Vampire implements CheckSheet {
 		generation?: number
 		// sire?: string,
 	) {
-		let tempAtt: AttributeType;
+		let tempAtt: SkillSection;
 		this._cardOwnerData = new CardData(name, player, clan, generation);
-		// this._attPriority = 1;
-		// tempAtt = new Attributes(this._attPriority);
-		// this._attributes = tempAtt.attributes
-
+		this._attPriority = 1;
+		tempAtt = new Attributes(2, 'attributes');
+		this._attributes = tempAtt.attributes;
 
 		// 		// RETORNA OS ATRIBUTOS (PAREI AQUI)
 		// 		// console.log(this._attributes.attributes);
