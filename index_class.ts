@@ -4,13 +4,41 @@ import { Vampire } from './src/units/type/type';
 console.clear();
 
 const teste = new Vampire();
-console.log();
-console.log();
+// console.log();
+// console.log();
 console.log(teste);
-// console.log(teste)
-// console.log(teste._attributes._primary._features)
-// console.log(teste._attributes._secundary._features)
-// console.log(teste._attributes._tertiary._features)
+
+// console.log();
+// console.log();
+// console.log(teste._cardOwnerData.generation('decrease', 1));
+// console.log(teste._cardOwnerData.generation());
+// console.log();
+// console.log(teste._cardOwnerData.sheetData);
+
+// console.log();
+// console.log();
+// console.log(teste._attributes);
+// console.log();
+// console.log(teste._attributes.physical.features);
+// console.log(teste._attributes.social.features);
+// console.log(teste._attributes.mental.features);
+
+// console.log();
+// console.log();
+// console.log(teste._abilities);
+// console.log();
+// console.log(teste._abilities.talents.features);
+// console.log(teste._abilities.skills.features);
+// console.log(teste._abilities.knowledges.features);
+
+// console.log();
+// console.log();
+// console.log(teste._advantages);
+// console.log();
+// console.log(teste._advantages.disciplines.features);
+// console.log(teste._advantages.backgrounds.features);
+// console.log(teste._advantages.virtues.features);
+
 
 // const vampireSabath = new species.Tzimisce('Cavalim');
 // const vampireCamarilla = new species.Malkavian('Januário');

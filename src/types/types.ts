@@ -1,4 +1,7 @@
-export declare type Skill = [string, number];
+export declare type Skill = {
+	skill: string;
+	value: number;
+};
 
 export declare type _Humanity = Skill;
 export declare type Willpower = number[];

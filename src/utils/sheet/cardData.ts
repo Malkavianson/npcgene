@@ -1,21 +1,25 @@
-import { nameGenerator, clanSelector } from '../tools/randomizers';
+import {
+	nameGenerator,
+	clanSelector,
+	idCreator,
+} from '../tools/randomizers';
 import { OwnData } from '../../types/abstracts';
 
 export class CardData extends OwnData {
 	constructor(
 		name?: string,
 		player?: string,
+		clan?: string,
+		generation?: number
 		// nature?: string,
 		// demeanor?: string,
 		// concept?: string,
-		clan?: string,
-		generation?: number
 		// sire?: string,
 	) {
 		super();
 		this._creation = Date.now();
-		this._id = `porpo1${this._creation}`;
-
+		this._id = idCreator();
+		
 		if (name) {
 			this._name = name;
 		} else {

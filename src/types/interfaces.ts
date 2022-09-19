@@ -1,11 +1,11 @@
-import type { SkillSection, OwnData } from './abstracts';
+import type { OwnData } from './abstracts';
 import type { Skill } from './types';
 
 export interface CheckSheet {
 	_cardOwnerData: OwnData;
-	_attributes: SkillSectionAttributeResponse;
-	_abilities: SkillSection;
-	_advantages: SkillSection;
+	_attributes: SkillSectionResponse;
+	_abilities: SkillSectionResponse;
+	_advantages: SkillSectionResponse;
 }
 
 export interface SheetData {
@@ -30,9 +30,35 @@ export interface SkillGroupResponse {
 	stand?: number;
 }
 
+export interface SkillSectionResponse {
+	type: string;
+	physical?: SkillGroupResponse;
+	social?: SkillGroupResponse;
+	mental?: SkillGroupResponse;
+	talents?: SkillGroupResponse;
+	skills?: SkillGroupResponse;
+	knowledges?: SkillGroupResponse;
+	disciplines?: SkillGroupResponse;
+	backgrounds?: SkillGroupResponse;
+	virtues?: SkillGroupResponse;
+}
+
 export interface SkillSectionAttributeResponse {
 	type: string;
 	physical: SkillGroupResponse;
 	social: SkillGroupResponse;
 	mental: SkillGroupResponse;
+}
+
+export interface SkillSectionAbilitiesResponse {
+	type: string;
+	talents: SkillGroupResponse;
+	skills: SkillGroupResponse;
+	knowledges: SkillGroupResponse;
+}
+export interface SkillSectionAdvantagesResponse {
+	type: string;
+	disciplines: SkillGroupResponse;
+	backgrounds: SkillGroupResponse;
+	virtues: SkillGroupResponse;
 }

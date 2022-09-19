@@ -1,5 +1,5 @@
 import type {
-	SkillSectionAttributeResponse,
+	SkillSectionResponse,
 	SkillGroupResponse,
 	SheetData,
 } from './interfaces';
@@ -28,7 +28,10 @@ export abstract class OwnData {
 		};
 	}
 
-	public generation(action?: string, value?: number): number {
+	public generation(
+		action?: string,
+		value?: number
+	): number {
 		switch (action) {
 			case 'decrease':
 				this._generation = this._generation - value;
@@ -44,24 +47,8 @@ export abstract class SkillSection {
 	protected _dataType: string;
 	protected _attributes: SkillGroup[];
 
-	public get attributes(): SkillSectionAttributeResponse {
-		const att: SkillGroupResponse[] = this._attributes
-			.map(e => {
-				return e.features;
-			})
-			.sort((a, b) => {
-				return a.stand < b.stand ? -1 : a.stand > b.stand ? 1 : 0;
-			});
-		att.forEach((e: SkillGroupResponse) => delete e.stand);
-
-		const res: SkillSectionAttributeResponse = {
-			type: this._dataType,
-			physical: att[0],
-			social: att[1],
-			mental: att[2],
-		};
-
-		return res;
+	public get attributes(): SkillSectionResponse {
+		return;
 	}
 }
 
@@ -81,6 +68,24 @@ export abstract class SkillGroup {
 				stand = 1;
 				break;
 			case 'mental':
+				stand = 2;
+				break;
+			case 'talents':
+				stand = 0;
+				break;
+			case 'skills':
+				stand = 1;
+				break;
+			case 'knowledges':
+				stand = 2;
+				break;
+			case 'disciplines':
+				stand = 0;
+				break;
+			case 'backgrounds':
+				stand = 1;
+				break;
+			case 'virtues':
 				stand = 2;
 				break;
 
