@@ -1,19 +1,19 @@
 // import { DicePlay } from './src/utils/tools/randomizers';
 // import * as species from './src/units/clan/clan';
-import { Vampire } from './src/units/type/type';
+import { Vampire } from "./src/units/type/type";
 console.clear();
 
-const teste = new Vampire();
+const teste = new Vampire("Otto Straus", "Alexandre Pereira", "Malkavian", 10);
 // console.log();
 // console.log();
-console.log(teste);
+// console.log(teste);
 
 // console.log();
 // console.log();
 // console.log(teste._cardOwnerData.generation('decrease', 1));
 // console.log(teste._cardOwnerData.generation());
 // console.log();
-// console.log(teste._cardOwnerData.sheetData);
+console.log(teste._cardOwnerData.sheetData);
 
 // console.log();
 // console.log();
@@ -39,6 +39,8 @@ console.log(teste);
 // console.log(teste._advantages.backgrounds.features);
 // console.log(teste._advantages.virtues.features);
 
+// _______________________________________________________
+//              Para terminar
 
 // const vampireSabath = new species.Tzimisce('Cavalim');
 // const vampireCamarilla = new species.Malkavian('Januário');

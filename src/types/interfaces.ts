@@ -1,16 +1,9 @@
-import type { OwnData } from './abstracts';
-import type { Skill } from './types';
-
-export interface CheckSheet {
-	_cardOwnerData: OwnData;
-	_attributes: SkillSectionResponse;
-	_abilities: SkillSectionResponse;
-	_advantages: SkillSectionResponse;
-}
+import type { Skill } from "./types";
 
 export interface SheetData {
 	id: string;
 	creation: number;
+	image: string;
 	name: string;
 	player: string;
 	clan: string;

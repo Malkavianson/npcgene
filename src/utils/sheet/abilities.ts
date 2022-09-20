@@ -1,23 +1,12 @@
-import {
-	SkillSection,
-} from '../../types/abstracts';
-import {
-	attributeSelector,
-} from '../tools/separators';
-import {
-	SkillGroupResponse,
-	SkillSectionAbilitiesResponse,
-} from '../../types/interfaces';
+import { SkillSection } from "../../types/abstracts";
+import { attributeSelector } from "../tools/separators";
+import { SkillGroupResponse, SkillSectionAbilitiesResponse } from "../../types/interfaces";
 
 export class Abilities extends SkillSection {
 	constructor(priority: number, generation: number) {
 		super();
-		this._dataType = 'abilities';
-		this._attributes = attributeSelector(
-			priority,
-			this._dataType,
-			generation
-		);
+		this._dataType = "abilities";
+		this._attributes = attributeSelector(priority, this._dataType, generation);
 	}
 	public get attributes(): SkillSectionAbilitiesResponse {
 		const att: SkillGroupResponse[] = this._attributes
@@ -25,11 +14,7 @@ export class Abilities extends SkillSection {
 				return e.features;
 			})
 			.sort((a, b) => {
-				return a.stand < b.stand
-					? -1
-					: a.stand > b.stand
-					? 1
-					: 0;
+				return a.stand < b.stand ? -1 : a.stand > b.stand ? 1 : 0;
 			});
 		att.forEach((e: SkillGroupResponse) => delete e.stand);
 
@@ -42,4 +27,4 @@ export class Abilities extends SkillSection {
 
 		return res;
 	}
-};
+}

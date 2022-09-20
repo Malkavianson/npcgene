@@ -1,13 +1,23 @@
-import type {
-	SkillSectionResponse,
-	SkillGroupResponse,
-	SheetData,
-} from './interfaces';
-import type { Skill } from './types';
+import { Abilities } from "../utils/sheet/abilities";
+import { Advantages } from "../utils/sheet/advantages";
+import { Attributes } from "../utils/sheet/attributes";
+import type { SkillSectionResponse, SkillGroupResponse, SheetData } from "./interfaces";
+import type { Skill } from "./types";
+
+export abstract class CheckSheet {
+	_cardOwnerData: OwnData;
+	_attributes: SkillSectionResponse;
+	_attributesObject: Attributes;
+	_abilities: SkillSectionResponse;
+	_abilitiesObject: Abilities;
+	_advantages: SkillSectionResponse;
+	_advantagesObject: Advantages;
+}
 
 export abstract class OwnData {
 	protected _creation: number;
 	protected _id: string;
+	protected _image: string;
 	protected _name: string;
 	protected _player: string;
 	protected _clan: string;
@@ -21,6 +31,7 @@ export abstract class OwnData {
 		return {
 			id: this._id,
 			creation: this._creation,
+			image: this._image,
 			name: this._name,
 			player: this._player,
 			clan: this._clan,
@@ -28,12 +39,9 @@ export abstract class OwnData {
 		};
 	}
 
-	public generation(
-		action?: string,
-		value?: number
-	): number {
+	public generation(action?: string, value?: number): number {
 		switch (action) {
-			case 'decrease':
+			case "decrease":
 				this._generation = this._generation - value;
 				break;
 			default:
@@ -61,31 +69,31 @@ export abstract class SkillGroup {
 		let stand: number;
 
 		switch (this._type) {
-			case 'physical':
+			case "physical":
 				stand = 0;
 				break;
-			case 'social':
+			case "social":
 				stand = 1;
 				break;
-			case 'mental':
+			case "mental":
 				stand = 2;
 				break;
-			case 'talents':
+			case "talents":
 				stand = 0;
 				break;
-			case 'skills':
+			case "skills":
 				stand = 1;
 				break;
-			case 'knowledges':
+			case "knowledges":
 				stand = 2;
 				break;
-			case 'disciplines':
+			case "disciplines":
 				stand = 0;
 				break;
-			case 'backgrounds':
+			case "backgrounds":
 				stand = 1;
 				break;
-			case 'virtues':
+			case "virtues":
 				stand = 2;
 				break;
 
