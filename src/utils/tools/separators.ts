@@ -232,4 +232,4 @@ export const attributeSelector = (priority: number, dataType: string, generation
 export const imageFetcher = (suffix: string): string => {
 	const size: number = 64;
 	return `https://${size}.media.tumblr.com/tumblr_${suffix}.jpg`;
-}
+};

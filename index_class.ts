@@ -3,17 +3,19 @@
 import { Vampire } from "./src/units/type/type";
 console.clear();
 
-const teste = new Vampire("Otto Straus", "Alexandre Pereira", "Malkavian", 10);
+// const teste = new Vampire("Otto Straus", "Alexandre Pereira", "Malkavian", 10);
+const teste = new Vampire();
 // console.log();
 // console.log();
 // console.log(teste);
+console.log(teste.sheet);
 
 // console.log();
 // console.log();
 // console.log(teste._cardOwnerData.generation('decrease', 1));
 // console.log(teste._cardOwnerData.generation());
 // console.log();
-console.log(teste._cardOwnerData.sheetData);
+// console.log(teste._cardOwnerData.sheetData);
 
 // console.log();
 // console.log();

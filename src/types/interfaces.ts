@@ -1,5 +1,12 @@
 import type { Skill } from "./types";
 
+export interface Sheet {
+	cardOwner: SheetData;
+	attributes: SkillSectionResponse;
+	abilities: SkillSectionResponse;
+	advantages: SkillSectionResponse;
+}
+
 export interface SheetData {
 	id: string;
 	creation: number;

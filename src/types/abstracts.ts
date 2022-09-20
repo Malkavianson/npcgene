@@ -1,7 +1,7 @@
 import { Abilities } from "../utils/sheet/abilities";
 import { Advantages } from "../utils/sheet/advantages";
 import { Attributes } from "../utils/sheet/attributes";
-import type { SkillSectionResponse, SkillGroupResponse, SheetData } from "./interfaces";
+import type { SkillSectionResponse, SkillGroupResponse, SheetData, Sheet } from "./interfaces";
 import type { Skill } from "./types";
 
 export abstract class CheckSheet {
@@ -12,6 +12,15 @@ export abstract class CheckSheet {
 	_abilitiesObject: Abilities;
 	_advantages: SkillSectionResponse;
 	_advantagesObject: Advantages;
+
+	public get sheet(): Sheet {
+		return {
+			cardOwner: this._cardOwnerData.sheetData,
+			attributes: this._attributes,
+			abilities: this._abilities,
+			advantages: this._advantages,
+		};
+	}
 }
 
 export abstract class OwnData {
